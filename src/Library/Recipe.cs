@@ -16,7 +16,7 @@ namespace Full_GRASP_And_SOLID
 
         public Product FinalProduct { get; set; }
 
-        public bool Cooked {get;set;} = false;
+        public bool Cooked {get;private set;} = false;
 
         private CountdownTimer timer = new CountdownTimer();
 
@@ -89,7 +89,7 @@ namespace Full_GRASP_And_SOLID
                 throw new Exception("La receta ya fue cocinada.");
             }
             this.Cooked = true;
-            this.timer.Register(this.GetCookTime()*1000, this);
+            this.timer.Register((this.GetCookTime()*1000), this);
         }
 
         public void TimeOut()

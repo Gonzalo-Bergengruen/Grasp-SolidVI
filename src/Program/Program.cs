@@ -33,10 +33,10 @@ namespace Full_GRASP_And_SOLID
             printer = new FilePrinter();
             printer.PrintRecipe(recipe);
 
-            Console.WriteLine($"Cooked: {recipe.Cooked}");
+            Console.WriteLine($"Cooked: {recipe.Cooked}. " + DateTime.Now.ToString("t"));
             recipe.Cook();
-            Thread.Sleep(1000);
-            Console.WriteLine($"Cooked: {recipe.Cooked}");
+            Thread.Sleep(recipe.GetCookTime()*1000);
+            Console.WriteLine($"Cooked: {recipe.Cooked}. " + DateTime.Now.ToString("t"));
             recipe.Cook();
         }
 
